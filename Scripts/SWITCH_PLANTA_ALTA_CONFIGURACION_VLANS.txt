@@ -1,0 +1,85 @@
+Switch> ena
+Switch# conf t
+SWITCH_PLANTA_ALTA(config)# hostname SWITCH_PLANTA_ALTA
+
+! VLANs y nombres
+SWITCH_PLANTA_ALTA(config)# vlan 10
+SWITCH_PLANTA_ALTA(config-vlan)# name RECURSOS_FINANCIEROS
+SWITCH_PLANTA_ALTA(config-vlan)# exit
+
+SWITCH_PLANTA_ALTA(config)# vlan 20
+SWITCH_PLANTA_ALTA(config-vlan)# name SUBDIRECCION
+SWITCH_PLANTA_ALTA(config-vlan)# exit
+
+SWITCH_PLANTA_ALTA(config)# vlan 30
+SWITCH_PLANTA_ALTA(config-vlan)# name DIRECCION
+SWITCH_PLANTA_ALTA(config-vlan)# exit
+
+SWITCH_PLANTA_ALTA(config)# vlan 40
+SWITCH_PLANTA_ALTA(config-vlan)# name RECURSOS_HUMANOS
+SWITCH_PLANTA_ALTA(config-vlan)# exit
+
+SWITCH_PLANTA_ALTA(config)# vlan 50
+SWITCH_PLANTA_ALTA(config-vlan)# name PPP
+SWITCH_PLANTA_ALTA(config-vlan)# exit
+
+SWITCH_PLANTA_ALTA(config)# vlan 60
+SWITCH_PLANTA_ALTA(config-vlan)# name COMUNICACION
+SWITCH_PLANTA_ALTA(config-vlan)# exit
+
+SWITCH_PLANTA_ALTA(config)# vlan 70
+SWITCH_PLANTA_ALTA(config-vlan)# name SALA_DE_JUNTAS
+SWITCH_PLANTA_ALTA(config-vlan)# exit
+
+SWITCH_PLANTA_ALTA(config)# vlan 80
+SWITCH_PLANTA_ALTA(config-vlan)# name ADMIN
+SWITCH_PLANTA_ALTA(config-vlan)# exit
+
+SWITCH_PLANTA_ALTA(config)# vlan 90
+SWITCH_PLANTA_ALTA(config-vlan)# name RESERVA
+SWITCH_PLANTA_ALTA(config-vlan)# exit
+
+SWITCH_PLANTA_ALTA(config)# vlan 100
+SWITCH_PLANTA_ALTA(config-vlan)# name VOZ
+SWITCH_PLANTA_ALTA(config-vlan)# exit
+
+! Asignación de puertos
+SWITCH_PLANTA_ALTA(config)# interface range fa 0/1-7
+SWITCH_PLANTA_ALTA(config-if-range)# switchport mode access
+SWITCH_PLANTA_ALTA(config-if-range)# switchport access vlan 10
+SWITCH_PLANTA_ALTA(config-if-range)# switchport voice vlan 100
+SWITCH_PLANTA_ALTA(config-if-range)# exit
+
+SWITCH_PLANTA_ALTA(config)# interface range fa 0/8-11
+SWITCH_PLANTA_ALTA(config-if-range)# switchport mode access
+SWITCH_PLANTA_ALTA(config-if-range)# switchport access vlan 20
+SWITCH_PLANTA_ALTA(config-if-range)# switchport voice vlan 100
+SWITCH_PLANTA_ALTA(config-if-range)# exit
+
+SWITCH_PLANTA_ALTA(config)# interface range fa 0/14-18
+SWITCH_PLANTA_ALTA(config-if-range)# switchport mode access
+SWITCH_PLANTA_ALTA(config-if-range)# switchport access vlan 20
+SWITCH_PLANTA_ALTA(config-if-range)# switchport voice vlan 100
+SWITCH_PLANTA_ALTA(config-if-range)# exit
+
+SWITCH_PLANTA_ALTA(config)# interface range fa 0/12-13
+SWITCH_PLANTA_ALTA(config-if-range)# switchport mode access
+SWITCH_PLANTA_ALTA(config-if-range)# switchport access vlan 30
+SWITCH_PLANTA_ALTA(config-if-range)# switchport voice vlan 100
+SWITCH_PLANTA_ALTA(config-if-range)# exit
+
+SWITCH_PLANTA_ALTA(config)# interface range fa 0/19-20
+SWITCH_PLANTA_ALTA(config-if-range)# switchport mode access
+SWITCH_PLANTA_ALTA(config-if-range)# switchport access vlan 70
+SWITCH_PLANTA_ALTA(config-if-range)# switchport voice vlan 100
+SWITCH_PLANTA_ALTA(config-if-range)# exit
+
+SWITCH_PLANTA_ALTA(config)# interface range fa 0/21-23
+SWITCH_PLANTA_ALTA(config-if-range)# switchport mode access
+SWITCH_PLANTA_ALTA(config-if-range)# switchport access vlan 90
+SWITCH_PLANTA_ALTA(config-if-range)# exit
+
+SWITCH_PLANTA_ALTA(config)# interface range gi 0/1-2
+SWITCH_PLANTA_ALTA(config-if-range)# switchport mode access
+SWITCH_PLANTA_ALTA(config-if-range)# switchport access vlan 90
+SWITCH_PLANTA_ALTA(config-if-range)# exit

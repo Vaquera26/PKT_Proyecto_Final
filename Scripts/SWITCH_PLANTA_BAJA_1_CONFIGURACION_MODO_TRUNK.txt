@@ -1,0 +1,7 @@
+Switch> ena
+Switch# conf t
+SWITCH_PLANTA_BAJA_1(config)# interface fa 0/23
+SWITCH_PLANTA_BAJA_1(config-if)# switchport mode trunk
+SWITCH_PLANTA_BAJA_1(config-if)# switchport trunk native vlan 90
+SWITCH_PLANTA_BAJA_1(config-if)# exit
+SWITCH_PLANTA_BAJA_1(config)# end

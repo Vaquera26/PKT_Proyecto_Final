@@ -1,0 +1,65 @@
+Switch> ena
+Switch# conf t
+SWITCH_PLANTA_BAJA_1(config)# hostname SWITCH_PLANTA_BAJA_1
+
+! Configuración de las VLANs
+SWITCH_PLANTA_BAJA_1(config)# vlan 10
+SWITCH_PLANTA_BAJA_1(config-vlan)# name RECURSOS_FINANCIEROS
+SWITCH_PLANTA_BAJA_1(config-vlan)# exit
+
+SWITCH_PLANTA_BAJA_1(config)# vlan 20
+SWITCH_PLANTA_BAJA_1(config-vlan)# name SUBDIRECCION
+SWITCH_PLANTA_BAJA_1(config-vlan)# exit
+
+SWITCH_PLANTA_BAJA_1(config)# vlan 30
+SWITCH_PLANTA_BAJA_1(config-vlan)# name DIRECCION
+SWITCH_PLANTA_BAJA_1(config-vlan)# exit
+
+SWITCH_PLANTA_BAJA_1(config)# vlan 40
+SWITCH_PLANTA_BAJA_1(config-vlan)# name RECURSOS_HUMANOS
+SWITCH_PLANTA_BAJA_1(config-vlan)# exit
+
+SWITCH_PLANTA_BAJA_1(config)# vlan 50
+SWITCH_PLANTA_BAJA_1(config-vlan)# name PPP
+SWITCH_PLANTA_BAJA_1(config-vlan)# exit
+
+SWITCH_PLANTA_BAJA_1(config)# vlan 60
+SWITCH_PLANTA_BAJA_1(config-vlan)# name COMUNICACION
+SWITCH_PLANTA_BAJA_1(config-vlan)# exit
+
+SWITCH_PLANTA_BAJA_1(config)# vlan 70
+SWITCH_PLANTA_BAJA_1(config-vlan)# name SALA_DE_JUNTAS
+SWITCH_PLANTA_BAJA_1(config-vlan)# exit
+
+SWITCH_PLANTA_BAJA_1(config)# vlan 80
+SWITCH_PLANTA_BAJA_1(config-vlan)# name ADMIN
+SWITCH_PLANTA_BAJA_1(config-vlan)# exit
+
+SWITCH_PLANTA_BAJA_1(config)# vlan 90
+SWITCH_PLANTA_BAJA_1(config-vlan)# name RESERVA
+SWITCH_PLANTA_BAJA_1(config-vlan)# exit
+
+SWITCH_PLANTA_BAJA_1(config)# vlan 100
+SWITCH_PLANTA_BAJA_1(config-vlan)# name VOZ
+SWITCH_PLANTA_BAJA_1(config-vlan)# exit
+
+! Asignación de puertos a las VLAN
+SWITCH_PLANTA_BAJA_1(config)# interface range fa 0/1-14
+SWITCH_PLANTA_BAJA_1(config-if-range)# switchport mode access
+SWITCH_PLANTA_BAJA_1(config-if-range)# switchport access vlan 40
+SWITCH_PLANTA_BAJA_1(config-if-range)# switchport voice vlan 100
+SWITCH_PLANTA_BAJA_1(config-if-range)# exit
+
+SWITCH_PLANTA_BAJA_1(config)# interface range fa 0/15-21
+SWITCH_PLANTA_BAJA_1(config-if-range)# switchport mode access
+SWITCH_PLANTA_BAJA_1(config-if-range)# switchport access vlan 50
+SWITCH_PLANTA_BAJA_1(config-if-range)# switchport voice vlan 100
+SWITCH_PLANTA_BAJA_1(config-if-range)# exit
+
+SWITCH_PLANTA_BAJA_1(config)# interface range fa 0/22, fa 0/24, gi 0/1-2
+SWITCH_PLANTA_BAJA_1(config-if-range)# switchport mode access
+SWITCH_PLANTA_BAJA_1(config-if-range)# switchport access vlan 90
+SWITCH_PLANTA_BAJA_1(config-if-range)# exit
+
+! Fin de la configuración
+SWITCH_PLANTA_BAJA_1(config)# end
