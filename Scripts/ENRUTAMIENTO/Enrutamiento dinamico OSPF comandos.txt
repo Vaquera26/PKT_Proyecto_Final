@@ -1,0 +1,44 @@
+Enrutamiento dinamico OSPF
+
+### Router 2
+
+RTA>ena
+RTA#conf t
+RTA(config)#host RTA
+
+RTA(config)#int fa0/0
+RTA(config-if)#ip add 192.168.1.1 255.255.255.0
+RTA(config-if)#no sh
+
+RTA(config)#int se0/0/0
+RTA(config-if)#ip add 10.0.0.1 255.255.255.252
+RTA(config-if)#no sh
+
+RTA(config)#router ospf 100
+RTA(config-router)#network 192.168.1.0 0.0.0.255 area 1
+RTA(config-router)#network 10.0.0.0 0.0.0.3 area 1
+
+RTA(config-router)#exit
+RTA(config)#do wr
+
+### Router 3
+
+RTB>ena
+RTB#conf t
+RTB(config)#host RTB
+
+RTB(config)#int fa0/0
+RTB(config-if)#ip add 192.168.2.1 255.255.255.0
+RTB(config-if)#no sh
+
+RTB(config)#int se0/0/0
+RTB(config-if)#ip add 10.0.0.2 255.255.255.252
+RTB(config-if)#clock rate 64000   ! Configura el reloj porque este router es DCE
+RTB(config-if)#no sh
+
+RTB(config)#router ospf 100
+RTB(config-router)#network 192.168.2.0 0.0.0.255 area 1
+RTB(config-router)#network 10.0.0.0 0.0.0.3 area 1
+
+RTB(config-router)#exit
+RTB(config)#do wr
